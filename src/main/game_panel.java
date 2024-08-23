@@ -2,6 +2,7 @@ package main;
 import java.awt.*;
 import javax.swing.JPanel;
 import player.player;
+import enemy.enemy;
 
 public class game_panel extends JPanel implements Runnable{
     public static final int WIDTH =480;
@@ -17,6 +18,7 @@ public class game_panel extends JPanel implements Runnable{
     public static int heart_y=25;
 
     public player player;
+    public enemy enemy;
 
     //INITIATING PLAY MANAGER CLASS
 
@@ -26,7 +28,8 @@ public class game_panel extends JPanel implements Runnable{
         this.setLayout(null);
 
         player = new player();
-        
+        enemy = new enemy();
+
         //implement keylistener
 
         //this.addKeyListener(new key_handler());
@@ -67,8 +70,6 @@ public class game_panel extends JPanel implements Runnable{
         Graphics2D g2 = (Graphics2D)g;
         g2.setColor(Color.white);
 
-        // ENEMY
-        g2.fillRect((WIDTH-player_x)/2,margin, player_x, player_y);
 
         // GUN
         g2.fillRect((WIDTH-gun_x)/2,(HEIGHT-gun_y)/2, gun_x, gun_y);
@@ -98,5 +99,6 @@ public class game_panel extends JPanel implements Runnable{
         g2.drawRect(margin*2,margin*2, player_x/2, player_y-margin*2);
 
         player.draw(g2);
+        enemy.draw(g2);
     }
 }

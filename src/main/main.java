@@ -1,5 +1,6 @@
 package main;
 import javax.swing.JFrame;
+
 public class main {
     public static void main(String args[]){
         JFrame window = new JFrame("2D Buckshot Roulette");
